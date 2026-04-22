@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => {
                         btn.innerHTML = originalText;
                         btn.disabled = false;
-                        btn.style.backgroundColor = '#95D100';
+                        btn.style.backgroundColor = '#488f6d';
                     }, 5000);
                 } else {
                     throw new Error('Senden fehlgeschlagen');
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                     btn.disabled = false;
-                    btn.style.backgroundColor = '#95D100';
+                    btn.style.backgroundColor = '#488f6d';
                 }, 3000);
             });
         });
