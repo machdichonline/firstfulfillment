@@ -325,6 +325,7 @@ nav.scrolled {
     font-size: 13px !important;
     font-weight: 700 !important;
     transition: var(--transition-smooth);
+    border: 1px solid #488f6d !important;
 }
 
 .nav-cta:hover {
