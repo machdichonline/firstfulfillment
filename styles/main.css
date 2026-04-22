@@ -187,7 +187,7 @@ section {
 }
 
 .btn-secondary:hover {
-    background: var(--text-main);
+    background: #488f6d;
     color: var(--bg-main);
 }
 
