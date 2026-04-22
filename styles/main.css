@@ -9,7 +9,7 @@ html {
     /* Colors - Light Theme */
     --bg-main: #FFFFFF;
     --bg-surface: #F8F9FA;
-    --accent: #95D100; /* More legible Neon Green for light background */
+    --accent: #488f6d; /* More legible Neon Green for light background */
     --accent-glow: rgba(149, 209, 0, 0.2);
     --text-main: #0A0A0A;
     --text-muted: #555555;
@@ -947,7 +947,7 @@ main {
 
 /* --- Multi-Step Inquiry Form (PF) --- */
 .pf-root {
-  --pf-accent: #95D100;
+  --pf-accent: #488f6d;
   --pf-accent-glow: rgba(149, 209, 0, 0.2);
   --pf-accent-hover: #82b800;
   --pf-bg: transparent;
