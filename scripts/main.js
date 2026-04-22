@@ -6,28 +6,22 @@ const isHomePage = window.location.pathname === '/' ||
 
 let splash = null;
 
-if (isHomePage) {
-    splash = document.createElement('div');
-    splash.id = 'splash-screen';
-    splash.innerHTML = `<div class="splash-logo"><img src="/logo.png" alt="Logo" class="splash-logo-image"></div>`;
-    document.body.prepend(splash);
-    document.body.classList.add('loading');
+splash = document.createElement('div');
+splash.id = 'splash-screen';
+splash.innerHTML = `<div class="splash-logo"><img src="/logo.png" alt="Logo" class="splash-logo-image"></div>`;
+document.body.prepend(splash);
+document.body.classList.add('loading');
 
-    // Fail-safe: Always remove splash after 3 seconds to prevent being stuck
-    setTimeout(() => {
-        if (document.body.classList.contains('loading')) {
-            console.warn('Splash fail-safe triggered');
-            splash.classList.add('hidden');
-            document.body.classList.remove('loading');
-            if (window.ScrollEngineInstance) {
-                window.ScrollEngineInstance.init();
-            }
+setTimeout(() => {
+    if (document.body.classList.contains('loading')) {
+        console.warn('Splash fail-safe triggered');
+        splash.classList.add('hidden');
+        document.body.classList.remove('loading');
+        if (window.ScrollEngineInstance) {
+            window.ScrollEngineInstance.init();
         }
-    }, 3000);
-} else {
-    // Immediately ensure we are not in loading state on other pages
-    document.body.classList.remove('loading');
-}
+    }
+}, 3000);
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -164,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const headerLogo = document.querySelector('.header-logo');
         const headerLogoImg = headerLogo?.querySelector('img');
 
-        if (!isHomePage || !headerLogo || !headerLogoImg) {
+        if (!headerLogo || !headerLogoImg) {
             document.body.classList.remove('loading');
             if (headerLogo) headerLogo.style.opacity = '1';
             return;
@@ -320,5 +314,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize components
     loadComponents().then(() => {
         initCookieBanner();
+    });
+});
+
+// Marquee: Warten bis Fonts & Layout stabil sind
+document.fonts.ready.then(function () {
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+            document.querySelectorAll('.marquee-content').forEach(function (el) {
+                el.classList.add('ready');
+            });
+        });
     });
 });

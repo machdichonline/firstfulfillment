@@ -1,9 +1,10 @@
 html {
     scroll-behavior: smooth;
+    background-color: #ffffff;
 }
-
+ 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=Inter:wght@400;500;700&display=swap');
-
+ 
 :root {
     /* Colors - Light Theme */
     --bg-main: #FFFFFF;
@@ -41,7 +42,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
-    overflow-y: visible !important;
+  overflow-y: visible !important;
     height: auto !important;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
@@ -239,7 +240,6 @@ input:focus, select:focus, textarea:focus {
     background: rgba(0, 0, 0, 0.05);
 }
 
-/* Navigation */
 nav {
     position: fixed;
     top: 0;
@@ -250,7 +250,6 @@ nav {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    /* border-bottom and box-shadow removed per request */
     transition: var(--transition-smooth);
 }
 
@@ -340,35 +339,12 @@ nav.scrolled {
     width: 100%;
 }
 
-/* Header Navigation */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    transition: var(--transition-smooth);
-}
-
-nav.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-}
 
 .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: var(--transition-smooth);
-}
-
-@media (max-width: 991px) {
-    .nav-content {
-        padding: 15px 0;
-        padding-top: 51px; /* iOS 36px safe area fix: 15px base + 36px offset */
-    }
 }
 
 .hamburger {
@@ -379,7 +355,6 @@ nav.scrolled {
     z-index: 1200;
     transition: var(--transition-smooth);
     padding: 10px;
-    margin-right: -10px;
 }
 
 .hamburger span {
@@ -475,12 +450,17 @@ nav.scrolled {
 .hero-text {
     position: relative;
     z-index: 2;
-    margin-top: 152px !important; /* Force text down from the header on desktop */
+    margin-top: 75px !important; /* Force text down from the header on desktop */
 }
 
 .hero-form {
     position: relative;
     z-index: 2;
+}
+@media (min-width: 991px) {
+.hero-form {
+    padding-top: 25px;
+}
 }
 
 @media (max-width: 991px) {
@@ -510,9 +490,7 @@ nav.scrolled {
         justify-content: center;
     }
 
-    .hero-form {
-        margin-top: 20px;
-    }
+
 }
 
 /* Footer */
@@ -629,6 +607,7 @@ body.loading main {
 
 main {
     transition: opacity 1s ease, transform 1s ease;
+    padding-top: 0;
 }
 
 /* Footer Branding & Layout */
@@ -825,7 +804,12 @@ main {
     max-width: 900px;
     margin: 0 auto;
 }
-
+@media (min-width: 1024px) {
+  .disziplinen-grid {
+    display: flex;
+      max-width: 100%;
+  }
+}
 .ueber-uns-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -928,17 +912,6 @@ main {
     overflow: hidden;
     padding: 40px 0;
     width: 100%;
-}
-
-.marquee-content {
-    display: flex;
-    gap: 80px;
-    width: max-content;
-    animation: marquee-scroll-reverse 40s linear infinite;
-}
-
-.marquee-content:hover {
-    animation-play-state: paused;
 }
 
 .marquee-item {
@@ -1171,7 +1144,13 @@ main {
     display: flex;
     gap: 100px;
     width: max-content;
+    will-change: transform;           
     animation: marquee 40s linear infinite;
+    animation-play-state: paused;    
+}
+
+.marquee-content.ready {
+    animation-play-state: running;   
 }
 
 .marquee-content:hover {
@@ -1179,7 +1158,7 @@ main {
 }
 
 @keyframes marquee {
-    0% { transform: translateX(0); }
+    0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
@@ -1347,7 +1326,6 @@ main {
     50% { transform: scale(0.95); opacity: 0.8; }
 }
 
-/* Premium Cookie Banner */
 #cookie-banner {
     position: fixed;
     z-index: 10002;
@@ -1415,6 +1393,20 @@ main {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    padding-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .cookie-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .cookie-btn-primary {
+        grid-column: 1 / -1;
+    }
 }
 
 .cookie-btn {
