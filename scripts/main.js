@@ -8,7 +8,7 @@ let splash = null;
 
 splash = document.createElement('div');
 splash.id = 'splash-screen';
-splash.innerHTML = `<div class="splash-logo"><img src="/logo.png" alt="Logo" class="splash-logo-image"></div>`;
+splash.innerHTML = `<div class="splash-logo"><img src="/Logo-first-fulfillment.png" alt="Logo" class="splash-logo-image"></div>`;
 document.body.prepend(splash);
 document.body.classList.add('loading');
 
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         banner.id = 'cookie-banner';
         banner.innerHTML = `
             <div class="cookie-content">
-                <img src="/logo.png" alt="Logo" class="cookie-logo">
+                <img src="/Logo-first-fulfillment.png" alt="Logo" class="cookie-logo">
                 <h4 style="margin-bottom: 10px;">Deine Privatsphäre ist uns wichtig</h4>
                 <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">
                     Wir nutzen Cookies, um deine Erfahrung auf unserer Website zu verbessern. Einige sind essenziell, während andere uns helfen, diese Website und dein Erlebnis zu verbessern.
